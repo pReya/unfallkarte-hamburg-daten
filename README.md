@@ -1,6 +1,12 @@
 # Harmonisierter Datensatz über Verkehrsunfälle in Hamburg von 2009 bis 2023
 
+
+> [!WARNING]  
+> Dieses Repository ist in einem "work in progress"-Zustand. Idealerweise müsste die Bereinigung/Aufbereitung der Daten komplett automatisiert und reproduzierbar erfolgen. Leider ist das aktuell noch nicht der Fall.
+
 Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023. Die Quelle der Daten sind verschiedene IFG-Anfragen. Die Daten in diesem Repository wurden lediglich in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
+
+Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Releases"](https://github.com/pReya/unfallstatistik-hamburg-daten/releases).
 
 ## Übersicht
 | Jahr | Datei/Anfrage | Unfälle |
