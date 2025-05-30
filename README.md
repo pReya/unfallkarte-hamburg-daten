@@ -2,9 +2,9 @@
 
 
 > [!WARNING]  
-> Dieses Repository ist in einem "work in progress"-Zustand. Idealerweise müsste die Bereinigung/Aufbereitung der Daten komplett automatisiert und reproduzierbar erfolgen. Leider ist das aktuell noch nicht der Fall.
+> Dieses Repository ist in einem "work in progress"-Zustand. Idealerweise müsste die Bereinigung/Aufbereitung der Daten komplett automatisiert und reproduzierbar erfolgen. Leider ist das aktuell noch nicht der Fall. Der
 
-Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023. Die Quelle der Daten sind verschiedene IFG-Anfragen. Die Daten in diesem Repository wurden lediglich in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
+Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023. Die Quelle der Daten sind verschiedene IFG-Anfragen. Die Daten in diesem Repository wurden lediglich kombiniert, in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
 
 Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Releases"](https://github.com/pReya/unfallstatistik-hamburg-daten/releases).
 
@@ -29,4 +29,20 @@ Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Release
 | **Gesamt** | |972871|
 
 ## Lizenz
-**Ich bin nicht der Urheber dieser Daten.** Sie stammen alle aus den o.g. IFG-Anfragen und es wurde dort keine explizite Lizenz angegeben. Daher weiß ich nicht, unter welcher Lizenz diese Daten stehen (für entsprechende Hinweise bin ich offen).
+**Ich bin nicht der Urheber dieser Daten.** Sie stammen alle aus den o.g. IFG-Anfragen und es wurde dort keine explizite Lizenz angegeben. Daher weiß ich nicht, unter welcher Lizenz diese Daten stehen (für entsprechende Hinweise bin ich dankbar).
+
+## Bereinigungen
+
+- LfNr 27207 im Jahr 2016 hat im Feld `Ziff` den Wert "L1", welcher keiner gültigen Kennziffer für Ortsteile entspricht. Anhand der GPS-Koordinaten wurde manuell auf "416" korrigiert
+
+```sql
+UPDATE "accidents" SET "Zif" = '416' WHERE "LfNr" = '27207' AND "Jahr" = 2016;
+```
+
+- Das Zahlenformat vieler GPS-Koordinaten ist ungültig (Der Punkt ist hier sowohl als Dezimaltrennzeichen als auch als Tausendertrennzeichen gesetzt). Dank fester Anzahl von Nachkommastellen kann das leicht korrigiert werden.
+
+- Alle Textfelder wurden von führendem und folgendem Whitespace befreit (trim)
+
+- Das Datumsformat wurde vereinheitlicht zu `YYYY-MM-DD`
+
+- Es wurde eine global eindeutige ID in der Spalte `GlobalId` hinzugefügt (zusammengesetzt aus `Jahr` und `LfNr`)
