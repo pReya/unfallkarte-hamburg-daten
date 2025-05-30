@@ -9,8 +9,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: "accidents"
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24.x'
+      - run: cd accidents
       - run: npm run start
