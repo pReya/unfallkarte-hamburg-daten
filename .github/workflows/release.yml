@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '24.x'
       - run: ls -la
-      - run: cd accidents/scripts
+      - run: cd accidents
       - run: pwd
       - run: ls -la
       - run: npm run start
