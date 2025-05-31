@@ -1,10 +1,6 @@
 # Harmonisierter Datensatz über Verkehrsunfälle in Hamburg von 2009 bis 2023
 
-
-> [!WARNING]  
-> Dieses Repository ist in einem "work in progress"-Zustand. Idealerweise müsste die Bereinigung/Aufbereitung der Daten komplett automatisiert und reproduzierbar erfolgen. Leider ist das aktuell noch nicht der Fall. Der
-
-Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023. Die Quelle der Daten sind verschiedene IFG-Anfragen. Die Daten in diesem Repository wurden lediglich kombiniert, in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
+Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023 aus der polizeilichen Unfalldatenbank EUSKa (Elektronische Unfalltypensteckkarte). Die Quelle der Daten sind verschiedene IFG-Anfragen (alle weiter unten verlinkt). Die Daten in diesem Repository wurden lediglich kombiniert, in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
 
 Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Releases"](https://github.com/pReya/unfallstatistik-hamburg-daten/releases).
 
@@ -31,7 +27,8 @@ Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Release
 ## Lizenz
 **Ich bin nicht der Urheber dieser Daten.** Sie stammen alle aus den o.g. IFG-Anfragen und es wurde dort keine explizite Lizenz angegeben. Daher weiß ich nicht, unter welcher Lizenz diese Daten stehen (für entsprechende Hinweise bin ich dankbar).
 
-## Bereinigungen
+## Bereinigungen/Modifikationen
+- In den Rohdaten im Jahr 2019 sind die Spalten `WoTag` und `TagebuchNr` dazugekommen. Ab 2020 wurde `TagebuchNr` wieder entfernt (ist also nur für ein Jahr vorhanden).
 
 - LfNr 27207 im Jahr 2016 hat im Feld `Ziff` den Wert "L1", welcher keiner gültigen Kennziffer für Ortsteile entspricht. Anhand der GPS-Koordinaten wurde manuell auf "416" korrigiert
 
@@ -39,10 +36,10 @@ Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Release
 UPDATE "accidents" SET "Zif" = '416' WHERE "LfNr" = '27207' AND "Jahr" = 2016;
 ```
 
-- Das Zahlenformat vieler GPS-Koordinaten ist ungültig (Der Punkt ist hier sowohl als Dezimaltrennzeichen als auch als Tausendertrennzeichen gesetzt). Dank fester Anzahl von Nachkommastellen kann das leicht korrigiert werden.
+- Das Zahlenformat vieler GPS-Koordinaten ist ungültig (der Punkt wird hier sowohl als Dezimaltrennzeichen als auch als Tausendertrennzeichen gesetzt). Dank fester Anzahl von Nachkommastellen kann das leicht korrigiert werden.
 
-- Alle Textfelder wurden von führendem und folgendem Whitespace befreit (trim)
+- Alle Textfelder wurden von führendem und folgendem Whitespace befreit (trim).
 
 - Das Datumsformat wurde vereinheitlicht zu `YYYY-MM-DD`
 
-- Es wurde eine global eindeutige ID in der Spalte `GlobalId` hinzugefügt (zusammengesetzt aus `Jahr` und `LfNr`)
+- Es wurde eine global eindeutige ID in der Spalte `GlobalId` hinzugefügt (zusammengesetzt aus `Jahr` und `LfNr`).
