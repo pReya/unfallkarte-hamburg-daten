@@ -15,9 +15,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-      -   run: |
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: |
             cd accidents/scripts
-            pwd
-            ls -la
+            npm install
+            pip install sqlite-utils
             npm run start
 
