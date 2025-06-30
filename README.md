@@ -2,7 +2,7 @@
 
 Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023 aus der polizeilichen Unfalldatenbank EUSKa (Elektronische Unfalltypensteckkarte). Die Quelle der Daten sind verschiedene IFG-Anfragen (alle weiter unten verlinkt). Die Daten in diesem Repository wurden lediglich kombiniert, in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
 
-Die bereinigten Daten finden sich in Form einer SQLite Datenbank [unter "Releases"](https://github.com/pReya/unfallstatistik-hamburg-daten/releases).
+Die bereinigten Daten finden sich immer in Form einer SQLite-Datenbank als Artefakt [unter dem neusten Workflow-Durchlauf](https://github.com/pReya/unfallkarte-hamburg-daten/actions).
 
 ## Übersicht
 | Jahr | Datei/Anfrage | Unfälle |
