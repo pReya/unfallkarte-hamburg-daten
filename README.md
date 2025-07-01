@@ -1,6 +1,6 @@
-# Harmonisierter Datensatz über Verkehrsunfälle in Hamburg von 2009 bis 2023
+# Harmonisierter Datensatz über Verkehrsunfälle in Hamburg von 2009 bis 2024
 
-Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2023 aus der polizeilichen Unfalldatenbank EUSKa (Elektronische Unfalltypensteckkarte). Die Quelle der Daten sind verschiedene IFG-Anfragen (alle weiter unten verlinkt). Die Daten in diesem Repository wurden lediglich kombiniert, in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
+Dieses Repository beinhaltet die Rohdaten inkl. Geokoordinaten über alle Verkehrsunfälle in Hamburg zwischen 2009 und 2024 aus der polizeilichen Unfalldatenbank EUSKa (Elektronische Unfalltypensteckkarte). Die Quelle der Daten sind verschiedene IFG-Anfragen (alle weiter unten verlinkt). Die Daten in diesem Repository wurden lediglich kombiniert, in ein einheitliches Format gebracht, und (eindeutige) Fehler korrigiert.
 
 Die bereinigten Daten finden sich immer in Form einer SQLite-Datenbank als Artefakt [unter dem neusten Workflow-Durchlauf](https://github.com/pReya/unfallkarte-hamburg-daten/actions).
 
@@ -22,7 +22,8 @@ Die bereinigten Daten finden sich immer in Form einer SQLite-Datenbank als Artef
 | 2021 |Reduzierter Datensatz und Unfallliste2021.csv<br>[reduzierterdatensatzundunfallliste2021plerlaeuterung.zip](https://fragdenstaat.de/anfrage/geodaten-zu-verkehrsunfaellen-in-hamburg-im-jahre-2022/#nachricht-771669)|59463|
 | 2022 |Reduzierter Datensatz und Unfallliste2022.csv<br>[reduzierterdatensatzundunfallliste2022plerlaeuterung.zip](https://fragdenstaat.de/anfrage/geodaten-zu-verkehrsunfaellen-in-hamburg-im-jahre-2022/#nachricht-771668)|60957|
 | 2023 |reduzierterdatensatzundunfallliste-2023.csv<br>[reduzierterdatensatzundunfallliste-2023.csv](https://fragdenstaat.de/anfrage/geodaten-zu-verkehrsunfaellen-in-hamburg-im-jahre-2023/#nachricht-937383)|63597|
-| **Gesamt** | |972871|
+| 2024 |reduzierterdatensatzundunfallliste.xlsx<br>[reduzierterdatensatzundunfallliste.xlsx](https://fragdenstaat.de/anfrage/geodaten-zu-verkehrsunfaellen-in-hamburg-im-jahre-2024/#nachricht-1002692)|64075|
+| **Gesamt** | |1036946|
 
 ## Lizenz
 **Ich bin nicht der Urheber dieser Daten.** Sie stammen alle aus den o.g. IFG-Anfragen und es wurde dort keine explizite Lizenz angegeben. Daher weiß ich nicht, unter welcher Lizenz diese Daten stehen (für entsprechende Hinweise bin ich dankbar).
